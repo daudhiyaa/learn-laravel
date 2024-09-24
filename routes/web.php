@@ -1,7 +1,6 @@
 <?php
 
 use App\Models\Blog;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -20,9 +19,7 @@ Route::get('/blog', function () {
     ]);
 });
 
-Route::get('/blog/{slug}', function ($slug) {
-    $blog = Blog::find($slug);
-
+Route::get('/blog/{blog:slug}', function (Blog $blog) {
     return view('blog-detail', ['title' => 'Single Post', 'header' => 'Blog Detail Page', 'blog' => $blog]);
 });
 
