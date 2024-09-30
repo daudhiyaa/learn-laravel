@@ -10,9 +10,16 @@
             <a href="/blog/{{ $blog['slug'] }}" class="hover:underline">
                 <h2 class="mb-1 text-3xl tracking-tight font-bold text-gray-900">{{ $blog['title'] }}</h2>
             </a>
-            <div class="text-base text-gray-500">
-                <a href="#">{{ $blog['author'] }}</a> | {{ $blog->created_at->format('j F Y') }} |
-                {{ $blog->created_at->diffForHumans() }}
+            <div class="">
+                By
+                <a href="/authors/{{ $blog->author->username }}" class="hover:underline text-base text-gray-500">
+                    {{ $blog->author->name }}
+                </a>
+                in
+                <a href="#" class="hover:underline text-base text-gray-500">
+                    Category Name
+                </a>
+                | {{ $blog->created_at->diffForHumans() }}
             </div>
             <p class="my-4 font-light">
                 {{ Str::limit($blog['content'], 50) }}
