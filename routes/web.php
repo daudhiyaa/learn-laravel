@@ -27,11 +27,19 @@ Route::get('/blog/{blog:slug}', function (Blog $blog) { // This is the route mod
 });
 
 Route::get('/authors/{user:username}', function (User $user) {
-    return view('blog', ['title' => 'Author + Articles', 'header' => count($user->blogs) . ' Blogs by ' . $user->name, 'blogs' => $user->blogs]);
+    return view('blog', [
+        'title' => 'Author + Articles',
+        'header' => count($user->blogs) . ' Blogs by ' . $user->name,
+        'blogs' => $user->blogs
+    ]);
 });
 
 Route::get('/categories/{category:slug}', function (Category $category) {
-    return view('blog', ['title' => 'Category: ' . $category->name, 'header' => 'Blogs in: ' . $category->name, 'blogs' => $category->blogs]);
+    return view('blog', [
+        'title' => 'Category: ' . $category->name,
+        'header' => count($category->blogs) . ' Blogs in: ' . $category->name,
+        'blogs' => $category->blogs
+    ]);
 });
 
 Route::get('/contact', function () {
