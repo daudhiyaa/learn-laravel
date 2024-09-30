@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Blog;
+use App\Models\Category;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
@@ -27,6 +28,10 @@ Route::get('/blog/{blog:slug}', function (Blog $blog) { // This is the route mod
 
 Route::get('/authors/{user:username}', function (User $user) {
     return view('blog', ['title' => 'Author + Articles', 'header' => count($user->blogs) . ' Blogs by ' . $user->name, 'blogs' => $user->blogs]);
+});
+
+Route::get('/categories/{category:slug}', function (Category $category) {
+    return view('blog', ['title' => 'Category: ' . $category->name, 'header' => 'Blogs in: ' . $category->name, 'blogs' => $category->blogs]);
 });
 
 Route::get('/contact', function () {

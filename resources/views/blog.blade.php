@@ -16,8 +16,8 @@
                     {{ $blog->author->name }}
                 </a>
                 in
-                <a href="#" class="hover:underline text-base text-gray-500">
-                    Category Name
+                <a href="/categories/{{ $blog->category->slug }}" class="hover:underline text-base text-gray-500">
+                    {{ $blog->category->name }}
                 </a>
                 | {{ $blog->created_at->diffForHumans() }}
             </div>
