@@ -13,17 +13,55 @@ class CategorySeeder extends Seeder
      */
     public function run(): void
     {
-        // Category::factory(10)->create();
-
-        Category::create(['name' => 'Web Development', 'slug' => 'web-development']);
-        Category::create(['name' => 'Mobile Development', 'slug' => 'mobile-development']);
-        Category::create(['name' => 'Graphic Design', 'slug' => 'graphic-design']);
-        Category::create(['name' => 'Data Science', 'slug' => 'data-science']);
-        Category::create(['name' => 'Cybersecurity', 'slug' => 'cybersecurity']);
-        Category::create(['name' => 'Machine Learning', 'slug' => 'machine-learning']);
-        Category::create(['name' => 'Artificial Intelligence', 'slug' => 'artificial-intelligence']);
-        Category::create(['name' => 'Digital Marketing', 'slug' => 'digital-marketing']);
-        Category::create(['name' => 'Blockchain Technology', 'slug' => 'blockchain-technology']);
-        Category::create(['name' => 'Cloud Computing', 'slug' => 'cloud-computing']);
+        Category::create([
+            'name' => 'Web Development',
+            'slug' => 'web-development',
+            'color' => 'red'
+        ]);
+        Category::create([
+            'name' => 'Mobile Development',
+            'slug' => 'mobile-development',
+            'color' => 'blue'
+        ]);
+        Category::create([
+            'name' => 'Graphic Design',
+            'slug' => 'graphic-design',
+            'color' => 'green'
+        ]);
+        Category::create([
+            'name' => 'Data Science',
+            'slug' => 'data-science',
+            'color' => 'yellow'
+        ]);
+        Category::create([
+            'name' => 'Cybersecurity',
+            'slug' => 'cybersecurity',
+            'color' => 'aqua'
+        ]);
+        Category::create([
+            'name' => 'Machine Learning',
+            'slug' => 'machine-learning',
+            'color' => 'purple'
+        ]);
+        Category::create([
+            'name' => 'Artificial Intelligence',
+            'slug' => 'artificial-intelligence',
+            'color' => 'pink'
+        ]);
+        Category::create([
+            'name' => 'Digital Marketing',
+            'slug' => 'digital-marketing',
+            'color' => 'emerald'
+        ]);
+        Category::create([
+            'name' => 'Blockchain Technology',
+            'slug' => 'blockchain-technology',
+            'color' => 'orange'
+        ]);
+        Category::create([
+            'name' => 'Cloud Computing',
+            'slug' => 'cloud-computing',
+            'color' => 'rose'
+        ]);
     }
 }
