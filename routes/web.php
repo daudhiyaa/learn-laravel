@@ -14,7 +14,9 @@ Route::get('/about', function () {
 });
 
 Route::get('/blog', function () {
-    $blogs = Blog::filter(request(['search', 'category', 'author']))->latest()->get(); // `filter()` itu didapet dari scopeFilter di Blog.php
+    $blogs = Blog::filter(  // `filter()` itu didapet dari scopeFilter di Blog.php
+        request(['search', 'category', 'author'])
+    )->latest()->paginate(10)->withQueryString();
 
     return view('blog', [
         'title' => 'Blog',
@@ -29,8 +31,6 @@ Route::get('/blog/{blog:slug}', function (Blog $blog) { // This is the route mod
 });
 
 Route::get('/authors/{user:username}', function (User $user) {
-    // $blogs = $user->blogs->load('author', 'category');
-
     return view('blog', [
         'title' => 'Author: ' . $user->name,
         'header' => count($user->blogs) . ' Blogs by ' . $user->name,
@@ -40,8 +40,6 @@ Route::get('/authors/{user:username}', function (User $user) {
 
 // specify `category:slug` karena defaultnya adalah `category:id`
 Route::get('/categories/{category:slug}', function (Category $category) {
-    // $blogs = $category->blogs->load('author', 'category');
-
     return view('blog', [
         'title' => 'Category: ' . $category->name,
         'header' => count($category->blogs) . ' Blogs in: ' . $category->name,
