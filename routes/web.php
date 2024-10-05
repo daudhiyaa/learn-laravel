@@ -14,12 +14,12 @@ Route::get('/about', function () {
 });
 
 Route::get('/blog', function () {
-    // $blogs = Blog::with(['author', 'category'])->get();
+    $blogs = Blog::filter(request(['search', 'category', 'author']))->latest()->get(); // `filter()` itu didapet dari scopeFilter di Blog.php
 
     return view('blog', [
         'title' => 'Blog',
         'header' => 'Blog Page',
-        'blogs' => Blog::all()
+        'blogs' => $blogs
     ]);
 });
 

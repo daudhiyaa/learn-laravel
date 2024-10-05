@@ -18,12 +18,12 @@
                                 alt="{{ $blog->author->name }}">
 
                             <div>
-                                <a href="/authors/{{ $blog->author->username }}" rel="author"
+                                <a href="/blog?author={{ $blog->author->username }}" rel="author"
                                     class="hover:underline text-xl font-bold text-gray-900 dark:text-white">{{ $blog->author->name }}</a>
                                 <p class="text-base text-gray-500 dark:text-gray-400 mb-1">
                                     {{ $blog->created_at->diffForHumans() }}</p>
 
-                                <a href="/categories/{{ $blog->category->slug }}"
+                                <a href="/blog?category={{ $blog->category->slug }}"
                                     class="bg-{{ $blog->category->color }}-100 hover:bg-{{ $blog->category->color }}-300 text-{{ $blog->category->color }}-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-{{ $blog->category->color }}-200 dark:text-{{ $blog->category->color }}-800">
                                     {{ $blog->category->name }}
                                 </a>
